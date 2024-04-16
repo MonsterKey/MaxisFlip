@@ -24,13 +24,19 @@ Allows running the bot with single wallet configuration directly via command lin
 
 #### Example Command
 
+For macOS (Apple M-series chips):
+
 ```shell
 $ ./flip_bot_mac-arm64 -pk yourWalletAddress -sk yourPrivateKey -amount 0.5 -bet 0.002
 ```
 
+For Linux (x86-64):
+
 ```shell
 $ flip_bot_amd64.exe -pk yourWalletAddress -sk yourPrivateKey -amount 0.5 -bet 0.002
 ```
+
+For Windows (x86-64):
 
 ```shell
 $ ./flip_bot_amd64 -pk yourWalletAddress -sk yourPrivateKey -amount 0.5 -bet 0.002
@@ -51,13 +57,19 @@ location ./config.json is used.
 
 #### Example Command
 
+For macOS (Apple M-series chips):
+
 ```shell
 $ ./flip_bot_mac-arm64 -config /Users/xxx/config.json
 ```
 
+For Linux (x86-64):
+
 ```shell
 $ flip_bot_amd64.exe -config /Users/xxx/config.json
 ```
+
+For Windows (x86-64):
 
 ```shell
 $ ./flip_bot_amd64 -config /Users/xxx/config.json
@@ -97,8 +109,13 @@ $ ./flip_bot_amd64 -config /Users/xxx/config.json
   ],
   "wallets": [
     {
-      "pk": "",
-      "sk": "",
+      "pk": "yourWalletAddress1",
+      "sk": "yourPrivateKey1",
+      "payAmount": 5
+    },
+    {
+      "pk": "yourWalletAddress2",
+      "sk": "yourPrivateKey2",
       "payAmount": 10
     }
   ]

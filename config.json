@@ -1,0 +1,35 @@
+{
+  "betSelectProbability": [
+    {
+      "betSelect": 0.002,
+      "prob": 100
+    },
+    {
+      "betSelect": 0.005,
+      "prob": 0
+    },
+    {
+      "betSelect": 0.01,
+      "prob": 0
+    },
+    {
+      "betSelect": 0.02,
+      "prob": 0
+    },
+    {
+      "betSelect": 0.05,
+      "prob": 0
+    },
+    {
+      "betSelect": 0.1,
+      "prob": 0
+    }
+  ],
+  "wallets": [
+    {
+      "pk": "",
+      "sk": "",
+      "payAmount": 10
+    }
+  ]
+}

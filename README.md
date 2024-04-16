@@ -8,7 +8,7 @@ supports two modes of operation: Basic and Advanced, catering to different user 
 - `Basic Mode`: Allows running the bot with single wallet configuration directly via command line arguments.
 - `Advanced Mode`: Supports multiple wallet configurations through a JSON file for complex operations and multiple bets.
 
-## Compiled Binaries
+## Compiled Binaries For Download
 
 The script is pre-compiled for multiple platforms. You can find the appropriate binary for your system:
 
@@ -24,15 +24,15 @@ Allows running the bot with single wallet configuration directly via command lin
 
 #### Example Command
 
-```
+```shell
 $ ./flip_bot_mac-arm64 -pk yourWalletAddress -sk yourPrivateKey -amount 0.5 -bet 0.002
 ```
 
-```
+```shell
 $ flip_bot_amd64.exe -pk yourWalletAddress -sk yourPrivateKey -amount 0.5 -bet 0.002
 ```
 
-```
+```shell
 $ ./flip_bot_amd64 -pk yourWalletAddress -sk yourPrivateKey -amount 0.5 -bet 0.002
 ```
 
@@ -46,20 +46,21 @@ In Basic Mode, you can directly use the compiled binary with the following param
 ### Advanced Mode
 
 Advanced Mode reads configurations from a config.json file, allowing detailed customization and running multiple
-wallets.
+wallets. You can specify the configuration file location with the -config parameter. If not specified, the default
+location ./config.json is used.
 
 #### Example Command
 
-```
-$ ./flip_bot_mac-arm64
-```
-
-```
-$ flip_bot_amd64.exe
+```shell
+$ ./flip_bot_mac-arm64 -config /Users/xxx/config.json
 ```
 
+```shell
+$ flip_bot_amd64.exe -config /Users/xxx/config.json
 ```
-$ ./flip_bot_amd64
+
+```shell
+$ ./flip_bot_amd64 -config /Users/xxx/config.json
 ```
 
 #### Configuration File: `config.json`
@@ -108,6 +109,40 @@ $ ./flip_bot_amd64
   equals 100.
 - `wallets` allows configuration of multiple wallets, where pk is the public key, sk is the private key, and payAmount
   is the total amount intended for the run.
+
+## Compiling Binaries From Source
+
+If you want to compile the Maxis Flip Bot binaries yourself to ensure they are up to date or to make modifications, you
+can do so by using the Go compiler with specific environment settings for each target platform. Here’s how you can
+compile the binaries for different operating systems:
+
+### Requirements
+
+- Go installed on your system (version 1.15 or higher is recommended).
+- Access to a command-line interface.
+
+### Compilation Commands
+
+Navigate to the directory containing the source code and run the following commands based on your target operating
+system:
+
+For macOS (Apple M-series chips):
+
+```shell
+$ GOOS=darwin GOARCH=arm64 go build -o flip_bot_mac-arm64 main.go
+```
+
+For Linux (x86-64):
+
+```shell
+$ GOOS=linux GOARCH=amd64 go build -o flip_bot_amd64 main.go
+```
+
+For Windows (x86-64):
+
+```shell
+$ GOOS=windows GOARCH=amd64 go build -o flip_bot_amd64.exe main.go
+```
 
 ## Installation
 

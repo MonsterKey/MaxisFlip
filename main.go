@@ -17,6 +17,7 @@ var (
 	skPrefix     = flag.String("sk", "", "wallet private key")
 	amountPrefix = flag.Float64("amount", 0.0, "total pay amount")
 	betPrefix    = flag.Float64("bet", 0.0, "bet select")
+	configPath   = flag.String("config", "./config.json", "config file path")
 
 	// Mode Default config
 	config tool.Config
@@ -84,7 +85,7 @@ func main() {
 
 	fmt.Println("version: flip bot v0.1.0")
 	if len(config.Wallets) <= 0 {
-		config, _ = tool.ReadConfigInfo("./config.json")
+		config, _ = tool.ReadConfigInfo(*configPath)
 	}
 
 	runTasker := config.Wallets
